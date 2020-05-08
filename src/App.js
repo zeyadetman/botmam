@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Form, Input, Button, InputNumber, Radio } from "antd";
+import { Form, Input, Button, InputNumber, Radio, message } from "antd";
 import axios from "axios";
 import "./App.css";
 
+const instance = axios.create({
+  baseURL: "https://botmam.herokuapp.com",
+});
 const layout = {
   labelCol: {
     span: 8,
@@ -14,9 +17,6 @@ const layout = {
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const instance = axios.create({
-    baseURL: "https://botmam.herokuapp.com",
-  });
 
   const isAuth = () => !!localStorage.getItem("token");
 
@@ -35,14 +35,14 @@ function App() {
     setLoading(false);
 
     if (data.done) {
-      alert("Done");
+      message.success("Done Successfully!");
     } else {
-      alert("Please try again.");
+      message.error("Please try again.");
     }
   };
 
   const onFinishFailed = (errorInfo) => {
-    alert("Please try again.");
+    message.error("Please try again.");
   };
 
   return (
