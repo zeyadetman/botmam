@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bd298a46aa7665a8116971936a4c35b5",
+    "revision": "e2766263e3ed7a5762878c47d8028487",
     "url": "/botmam/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/botmam/static/css/2.35fcc229.chunk.css"
   },
   {
-    "revision": "2ab88e845792ef205940",
+    "revision": "fbf1e87a40d3f53358f0",
     "url": "/botmam/static/css/main.1f1c6a66.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/botmam/static/js/2.fb600f14.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2ab88e845792ef205940",
-    "url": "/botmam/static/js/main.64a88cf5.chunk.js"
+    "revision": "fbf1e87a40d3f53358f0",
+    "url": "/botmam/static/js/main.89070f01.chunk.js"
   },
   {
     "revision": "252364c89c080dfc61db",
