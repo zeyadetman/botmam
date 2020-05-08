@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, InputNumber, Radio, message } from "antd";
 import axios from "axios";
 import "./App.css";
@@ -17,8 +17,10 @@ const layout = {
 
 function App() {
   const [loading, setLoading] = useState(false);
-
-  const isAuth = () => !!localStorage.getItem("token");
+  const [isAuth, setAuth] = useState(false);
+  useEffect(() => {
+    setAuth(!!localStorage.getItem("token"));
+  }, [loading]);
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -50,7 +52,7 @@ function App() {
       <header className="App-header">
         <p>BotMam</p>
       </header>
-      {isAuth() ? (
+      {isAuth ? (
         <Form
           {...layout}
           name="nest-messages"
