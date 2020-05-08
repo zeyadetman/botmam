@@ -25,7 +25,6 @@ function App() {
     const { data } = await instance.post("/login", values);
     setLoading(false);
     localStorage.setItem("token", data?.token);
-    console.log(data?.token);
   };
 
   const onAction = async (values) => {
@@ -43,7 +42,7 @@ function App() {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    alert("Please try again.");
   };
 
   return (
