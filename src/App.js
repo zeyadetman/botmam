@@ -23,23 +23,33 @@ function App() {
   }, [loading]);
 
   const onFinish = async (values) => {
-    setLoading(true);
-    const { data } = await instance.post("/login", values);
-    setLoading(false);
-    localStorage.setItem("token", data?.token);
+    try {
+      setLoading(true);
+      const { data } = await instance.post("/login", values);
+      setLoading(false);
+      localStorage.setItem("token", data?.token);
+    } catch (err) {
+      message.error("Something went wrong.");
+      setLoading(false);
+    }
   };
 
   const onAction = async (values) => {
-    setLoading(true);
-    const { data } = await instance.post("/actions", values, {
-      headers: { Authorization: localStorage.getItem("token") },
-    });
-    setLoading(false);
+    try {
+      setLoading(true);
+      const { data } = await instance.post("/actions", values, {
+        headers: { Authorization: localStorage.getItem("token") },
+      });
+      setLoading(false);
 
-    if (data.done) {
-      message.success("Done Successfully!");
-    } else {
-      message.error("Please try again.");
+      if (data.done) {
+        message.success("Done Successfully!");
+      } else {
+        message.error("Please try again.");
+      }
+    } catch (err) {
+      message.error("Something went wrong.");
+      setLoading(false);
     }
   };
 
